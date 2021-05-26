@@ -66,10 +66,9 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
             showSelectedLabels: true,
             showUnselectedLabels: false,
             type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.white,
-            //Theme.of(context).primaryColor,
+            backgroundColor: Theme.of(context).backgroundColor,
             unselectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
-            selectedItemColor: Colors.purple,
+            selectedItemColor: Theme.of(context).primaryColor,
             currentIndex: _selectedPageIndex,
             items: [
               BottomNavigationBarItem(icon: Icon(AppIcons.home), label: 'Home'),

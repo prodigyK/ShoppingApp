@@ -1,7 +1,9 @@
 import 'package:course_firebase_app/constants/color_consts.dart';
+import 'package:course_firebase_app/provider/dark_theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
+import 'package:provider/provider.dart';
 
 class UserInfo extends StatefulWidget {
   @override
@@ -9,7 +11,6 @@ class UserInfo extends StatefulWidget {
 }
 
 class _UserInfoState extends State<UserInfo> {
-  var _value = false;
   double top = 0.0;
   double topMargin = 300;
   ScrollController _scrollController;
@@ -25,6 +26,7 @@ class _UserInfoState extends State<UserInfo> {
 
   @override
   Widget build(BuildContext context) {
+    var themeChange = Provider.of<DarkThemeProvider>(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -118,16 +120,16 @@ class _UserInfoState extends State<UserInfo> {
                     userTitle('User Settings'),
                     Divider(thickness: 1, color: Colors.grey),
                     ListTileSwitch(
-                      value: _value,
+                      value: themeChange.darkTheme,
                       leading: Icon(Ionicons.md_moon),
                       onChanged: (value) {
                         setState(() {
-                          _value = value;
+                          themeChange.darkTheme = value;
                         });
                       },
                       visualDensity: VisualDensity.comfortable,
                       switchType: SwitchType.cupertino,
-                      switchActiveColor: Colors.indigo,
+                      switchActiveColor: Theme.of(context).accentColor,
                       title: Text('Dark Theme'),
                     ),
                     userListTile('Log out', '', Feather.log_out, context),
