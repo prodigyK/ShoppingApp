@@ -4,16 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CartEmpty extends StatelessWidget {
-  const CartEmpty({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
   @override
   Widget build(BuildContext context) {
     var darkTheme = Provider.of<DarkThemeProvider>(context).darkTheme;
+    var size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
