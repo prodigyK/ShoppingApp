@@ -1,6 +1,6 @@
 import 'package:course_firebase_app/constants/color_consts.dart';
-import 'package:course_firebase_app/screens/cart_empty.dart';
-import 'package:course_firebase_app/screens/cart_item.dart';
+import 'package:course_firebase_app/widgets/cart_empty.dart';
+import 'package:course_firebase_app/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatelessWidget {
