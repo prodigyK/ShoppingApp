@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:badges/badges.dart';
 import 'package:course_firebase_app/constants/temp_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -64,20 +65,13 @@ class FeedItem extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              width: 45,
-              height: 25,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Theme.of(context).primaryColor,
-              ),
-              child: Center(
-                child: Text(
-                  'New',
-                  style: TextStyle(color: Theme.of(context).buttonColor),
-                ),
-              ),
-            )
+            Badge(
+              toAnimate: true,
+              shape: BadgeShape.square,
+              badgeColor: Colors.pinkAccent,
+              borderRadius: BorderRadius.circular(8),
+              badgeContent: Text('New', style: TextStyle(color: Colors.white)),
+            ),
           ],
         ),
       ),

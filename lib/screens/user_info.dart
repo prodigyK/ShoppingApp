@@ -112,11 +112,6 @@ class _UserInfoState extends State<UserInfo> {
                     userListTile('Phone Number', '4555', Feather.phone, context),
                     userListTile('Shipping Address', '', Feather.map_pin, context),
                     userListTile('Joined Date', 'date', Feather.calendar, context),
-                    userListTile('Joined Date', 'date', Feather.calendar, context),
-                    userListTile('Joined Date', 'date', Feather.calendar, context),
-                    userListTile('Joined Date', 'date', Feather.calendar, context),
-                    userListTile('Joined Date', 'date', Feather.calendar, context),
-                    userListTile('Joined Date', 'date', Feather.calendar, context),
                     userTitle('User Settings'),
                     Divider(thickness: 1, color: Colors.grey),
                     ListTileSwitch(
