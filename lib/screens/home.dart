@@ -5,13 +5,16 @@ import 'package:badges/badges.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:course_firebase_app/constants/color_consts.dart';
 import 'package:course_firebase_app/constants/icon_consts.dart';
+import 'package:course_firebase_app/constants/temp_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return BackdropScaffold(
+      frontLayerBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: BackdropAppBar(
         title: Text("Home"),
         leading: BackdropToggleButton(
@@ -161,12 +164,11 @@ class Home extends StatelessWidget {
       // subHeader: BackdropSubHeader(
       //   title: Text("Sub Header"),
       // ),
-      frontLayer: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      frontLayer: Column(
         children: [
-          SizedBox(
+          Container(
             height: 200.0,
-            width: size.width,
+            width: double.infinity,
             child: Carousel(
               boxFit: BoxFit.fill,
               autoplay: true,
@@ -185,6 +187,45 @@ class Home extends StatelessWidget {
                 ExactAssetImage("assets/images/carousel3.jpg"),
                 ExactAssetImage("assets/images/carousel4.png"),
               ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                Text(
+                  'Popular Brands',
+                  style: TextStyle(
+                    color: Colors.grey.shade700,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20,
+                  ),
+                ),
+                Spacer(),
+                Text('View all >>', style: TextStyle(color: ColorsConsts.favColor, fontSize: 16)),
+              ],
+            ),
+          ),
+          Container(
+            height: 210,
+            width: size.width * 0.95,
+            child: Swiper(
+              itemBuilder: (BuildContext context, int index) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    color: Colors.blueGrey,
+                    child: Image.asset(
+                      TempData.brands[index],
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                );
+              },
+              autoplay: false,
+              itemCount: TempData.brands.length,
+              viewportFraction: 0.8,
+              scale: 0.9,
             ),
           ),
         ],
