@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:backdrop/backdrop.dart';
 import 'package:backdrop/scaffold.dart';
 import 'package:badges/badges.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:course_firebase_app/constants/color_consts.dart';
 import 'package:course_firebase_app/constants/icon_consts.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return BackdropScaffold(
       appBar: BackdropAppBar(
         title: Text("Home"),
@@ -62,7 +64,9 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
+      headerHeight: 250,
       backLayer: Container(
+        height: 500,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -154,11 +158,36 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      subHeader: BackdropSubHeader(
-        title: Text("Sub Header"),
-      ),
-      frontLayer: Center(
-        child: Text("Front Layer"),
+      // subHeader: BackdropSubHeader(
+      //   title: Text("Sub Header"),
+      // ),
+      frontLayer: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 200.0,
+            width: size.width,
+            child: Carousel(
+              boxFit: BoxFit.fill,
+              autoplay: true,
+              animationCurve: Curves.fastOutSlowIn,
+              animationDuration: Duration(milliseconds: 1000),
+              dotSize: 5.0,
+              dotIncreasedColor: Color(0xFFFF335C),
+              dotBgColor: Colors.black.withOpacity(0.3),
+              dotPosition: DotPosition.bottomCenter,
+              // dotVerticalPadding: 10.0,
+              showIndicator: true,
+              indicatorBgPadding: 7.0,
+              images: [
+                ExactAssetImage("assets/images/carousel1.png"),
+                ExactAssetImage("assets/images/carousel2.jpeg"),
+                ExactAssetImage("assets/images/carousel3.jpg"),
+                ExactAssetImage("assets/images/carousel4.png"),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
