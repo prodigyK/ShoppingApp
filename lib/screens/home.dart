@@ -8,6 +8,7 @@ import 'package:course_firebase_app/constants/icon_consts.dart';
 import 'package:course_firebase_app/constants/temp_data.dart';
 import 'package:course_firebase_app/provider/dark_theme_provider.dart';
 import 'package:course_firebase_app/widgets/category_widget.dart';
+import 'package:course_firebase_app/widgets/popular_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -169,96 +170,123 @@ class Home extends StatelessWidget {
       // subHeader: BackdropSubHeader(
       //   title: Text("Sub Header"),
       // ),
-      frontLayer: Column(
-        children: [
-          Container(
-            height: 200.0,
-            width: double.infinity,
-            child: Carousel(
-              boxFit: BoxFit.fill,
-              autoplay: true,
-              animationCurve: Curves.fastOutSlowIn,
-              animationDuration: Duration(milliseconds: 1000),
-              dotSize: 5.0,
-              dotIncreasedColor: Color(0xFFFF335C),
-              dotBgColor: Colors.black.withOpacity(0.3),
-              dotPosition: DotPosition.bottomCenter,
-              // dotVerticalPadding: 10.0,
-              showIndicator: true,
-              indicatorBgPadding: 7.0,
-              images: [
-                ExactAssetImage("assets/images/carousel1.png"),
-                ExactAssetImage("assets/images/carousel2.jpeg"),
-                ExactAssetImage("assets/images/carousel3.jpg"),
-                ExactAssetImage("assets/images/carousel4.png"),
-              ],
+      frontLayer: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 200.0,
+              width: double.infinity,
+              child: Carousel(
+                boxFit: BoxFit.fill,
+                autoplay: true,
+                animationCurve: Curves.fastOutSlowIn,
+                animationDuration: Duration(milliseconds: 1000),
+                dotSize: 5.0,
+                dotIncreasedColor: Color(0xFFFF335C),
+                dotBgColor: Colors.black.withOpacity(0.3),
+                dotPosition: DotPosition.bottomCenter,
+                // dotVerticalPadding: 10.0,
+                showIndicator: true,
+                indicatorBgPadding: 7.0,
+                images: [
+                  ExactAssetImage("assets/images/carousel1.png"),
+                  ExactAssetImage("assets/images/carousel2.jpeg"),
+                  ExactAssetImage("assets/images/carousel3.jpg"),
+                  ExactAssetImage("assets/images/carousel4.png"),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                Text(
-                  'Categories',
-                  style: TextStyle(
-                    color: Colors.grey.shade700,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: size.width * 0.45,
-            width: double.infinity,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: TempData.brands.length,
-              itemBuilder: (ctx, i) => CategoryWidget(size: size, darkMode: darkMode, index: i),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                Text(
-                  'Popular Brands',
-                  style: TextStyle(
-                    color: Colors.grey.shade700,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 20,
-                  ),
-                ),
-                Spacer(),
-                Text('View all >>', style: TextStyle(color: ColorsConsts.favColor, fontSize: 16)),
-              ],
-            ),
-          ),
-          Container(
-            height: 210,
-            width: size.width * 0.95,
-            child: Swiper(
-              itemBuilder: (BuildContext context, int index) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    padding: EdgeInsets.all(16),
-                    color: Colors.white,
-                    child: Image.asset(
-                      TempData.brands[index],
-                      fit: BoxFit.fill,
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Categories',
+                    style: TextStyle(
+                      color: Colors.grey.shade700,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 20,
                     ),
                   ),
-                );
-              },
-              autoplay: false,
-              itemCount: TempData.brands.length,
-              viewportFraction: 0.8,
-              scale: 0.9,
+                ],
+              ),
             ),
-          ),
-        ],
+            Container(
+              height: size.width * 0.45,
+              width: double.infinity,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: TempData.brands.length,
+                itemBuilder: (ctx, i) => CategoryWidget(size: size, darkMode: darkMode, index: i),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Popular Brands',
+                    style: TextStyle(
+                      color: Colors.grey.shade700,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Spacer(),
+                  Text('View all >>', style: TextStyle(color: ColorsConsts.favColor, fontSize: 16)),
+                ],
+              ),
+            ),
+            Container(
+              height: 210,
+              width: size.width * 0.95,
+              child: Swiper(
+                itemBuilder: (BuildContext context, int index) {
+                  return ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      padding: EdgeInsets.all(16),
+                      color: Colors.white,
+                      child: Image.asset(
+                        TempData.brands[index],
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  );
+                },
+                autoplay: false,
+                itemCount: TempData.brands.length,
+                viewportFraction: 0.8,
+                scale: 0.9,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Popular Products',
+                    style: TextStyle(
+                      color: Colors.grey.shade700,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Spacer(),
+                  Text('View all >>', style: TextStyle(color: ColorsConsts.favColor, fontSize: 16)),
+                ],
+              ),
+            ),
+            Container(
+              height: 280,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: TempData.brands.length,
+                itemBuilder: (_, i) => PopularProduct(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
