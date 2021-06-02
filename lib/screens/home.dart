@@ -6,13 +6,18 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:course_firebase_app/constants/color_consts.dart';
 import 'package:course_firebase_app/constants/icon_consts.dart';
 import 'package:course_firebase_app/constants/temp_data.dart';
+import 'package:course_firebase_app/provider/dark_theme_provider.dart';
+import 'package:course_firebase_app/widgets/category_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var darkMode = Provider.of<DarkThemeProvider>(context).darkTheme;
     return BackdropScaffold(
       frontLayerBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: BackdropAppBar(
@@ -194,6 +199,30 @@ class Home extends StatelessWidget {
             child: Row(
               children: [
                 Text(
+                  'Categories',
+                  style: TextStyle(
+                    color: Colors.grey.shade700,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: size.width * 0.45,
+            width: double.infinity,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: TempData.brands.length,
+              itemBuilder: (ctx, i) => CategoryWidget(size: size, darkMode: darkMode, index: i),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                Text(
                   'Popular Brands',
                   style: TextStyle(
                     color: Colors.grey.shade700,
@@ -214,7 +243,8 @@ class Home extends StatelessWidget {
                 return ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Container(
-                    color: Colors.blueGrey,
+                    padding: EdgeInsets.all(16),
+                    color: Colors.white,
                     child: Image.asset(
                       TempData.brands[index],
                       fit: BoxFit.fill,
