@@ -11,6 +11,7 @@ import 'package:course_firebase_app/widgets/category_widget.dart';
 import 'package:course_firebase_app/widgets/popular_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -222,27 +223,26 @@ class Home extends StatelessWidget {
             Container(
               height: 210,
               width: size.width * 0.95,
-              child: Text('Here was Swiper'),
-              // Swiper(
-              //   itemBuilder: (BuildContext context, int index) {
-              //     return ClipRRect(
-              //       borderRadius: BorderRadius.circular(10),
-              //       child: Container(
-              //         padding: EdgeInsets.all(16),
-              //         color: Colors.white,
-              //         child: Image.asset(
-              //           TempData.brands[index],
-              //           fit: BoxFit.fill,
-              //         ),
-              //       ),
-              //     );
-              //   },
-              //   autoplay: false,
-              //   itemCount: TempData.brands.length,
-              //   viewportFraction: 0.8,
-              //   scale: 0.9,
-              //   onTap: (index) {},
-              // ),
+              child: Swiper(
+                itemBuilder: (BuildContext context,int index){
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Container(
+                          padding: EdgeInsets.all(16),
+                          color: Colors.white,
+                          child: Image.asset(
+                            TempData.brands[index],
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      );
+                },
+                itemCount: 3,
+                autoplay: true,
+                viewportFraction: 0.8,
+                scale: 0.9,
+                pagination: SwiperPagination(),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
