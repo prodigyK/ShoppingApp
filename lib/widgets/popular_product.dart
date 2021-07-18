@@ -1,10 +1,9 @@
 import 'package:course_firebase_app/constants/icon_consts.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 class PopularProduct extends StatelessWidget {
   const PopularProduct({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -37,7 +36,7 @@ class PopularProduct extends StatelessWidget {
                 right: 12,
                 top: 10,
                 child: IconButton(
-                  icon: Icon(Entypo.star, color: Colors.grey.shade800),
+                  icon: Icon(AppIcons.star, color: Colors.grey.shade800),
                   // iconSize: 30,
                   onPressed: () {},
                 ),
@@ -46,7 +45,7 @@ class PopularProduct extends StatelessWidget {
                 right: 10,
                 top: 7,
                 child: IconButton(
-                  icon: Icon(Entypo.star_outlined, color: Colors.white),
+                  icon: Icon(AppIcons.star_outlined, color: Colors.white),
                   // iconSize: 30,
                   onPressed: () {},
                 ),

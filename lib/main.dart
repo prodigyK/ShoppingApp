@@ -1,6 +1,6 @@
-import 'package:course_firebase_app/constants/theme_data.dart';
-import 'package:course_firebase_app/provider/dark_theme_provider.dart';
-import 'package:course_firebase_app/screens/bottom_bar.dart';
+import './constants/theme_data.dart';
+import './provider/dark_theme_provider.dart';
+import './screens/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

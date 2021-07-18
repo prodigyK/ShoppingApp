@@ -5,7 +5,6 @@ import 'package:course_firebase_app/screens/home.dart';
 import 'package:course_firebase_app/screens/search.dart';
 import 'package:course_firebase_app/screens/user_info.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 class BottomBarScreen extends StatefulWidget {
   @override
@@ -13,7 +12,7 @@ class BottomBarScreen extends StatefulWidget {
 }
 
 class _BottomBarScreenState extends State<BottomBarScreen> {
-  List<Map<String, Widget>> _pages;
+  List<Map<String, Widget>> _pages = [];
   int _selectedPageIndex = 4;
 
   @override

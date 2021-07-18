@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({
-    Key key,
-    @required this.size,
-    @required this.darkMode,
-    @required this.index,
+    Key? key,
+    required this.size,
+    required this.darkMode,
+    required this.index,
   }) : super(key: key);
 
   final Size size;

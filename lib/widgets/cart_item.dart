@@ -8,6 +8,7 @@ class CartItem extends StatelessWidget {
       height: 140,
       child: Card(
         elevation: 3,
+        color: ColorsConsts.bgCartItem,
         margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(

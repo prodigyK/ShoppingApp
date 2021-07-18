@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:backdrop/backdrop.dart';
 import 'package:backdrop/scaffold.dart';
 import 'package:badges/badges.dart';
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:course_firebase_app/constants/color_consts.dart';
 import 'package:course_firebase_app/constants/icon_consts.dart';
 import 'package:course_firebase_app/constants/temp_data.dart';
@@ -11,7 +10,6 @@ import 'package:course_firebase_app/widgets/category_widget.dart';
 import 'package:course_firebase_app/widgets/popular_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -176,25 +174,26 @@ class Home extends StatelessWidget {
             Container(
               height: 200.0,
               width: double.infinity,
-              child: Carousel(
-                boxFit: BoxFit.fill,
-                autoplay: true,
-                animationCurve: Curves.fastOutSlowIn,
-                animationDuration: Duration(milliseconds: 1000),
-                dotSize: 5.0,
-                dotIncreasedColor: Color(0xFFFF335C),
-                dotBgColor: Colors.black.withOpacity(0.3),
-                dotPosition: DotPosition.bottomCenter,
-                // dotVerticalPadding: 10.0,
-                showIndicator: true,
-                indicatorBgPadding: 7.0,
-                images: [
-                  ExactAssetImage("assets/images/carousel1.png"),
-                  ExactAssetImage("assets/images/carousel2.jpeg"),
-                  ExactAssetImage("assets/images/carousel3.jpg"),
-                  ExactAssetImage("assets/images/carousel4.png"),
-                ],
-              ),
+              child: Text('Here was Carousel'),
+              // Carousel(
+              //   boxFit: BoxFit.fill,
+              //   autoplay: true,
+              //   animationCurve: Curves.fastOutSlowIn,
+              //   animationDuration: Duration(milliseconds: 1000),
+              //   dotSize: 5.0,
+              //   dotIncreasedColor: Color(0xFFFF335C),
+              //   dotBgColor: Colors.black.withOpacity(0.3),
+              //   dotPosition: DotPosition.bottomCenter,
+              //   // dotVerticalPadding: 10.0,
+              //   showIndicator: true,
+              //   indicatorBgPadding: 7.0,
+              //   images: [
+              //     ExactAssetImage("assets/images/carousel1.png"),
+              //     ExactAssetImage("assets/images/carousel2.jpeg"),
+              //     ExactAssetImage("assets/images/carousel3.jpg"),
+              //     ExactAssetImage("assets/images/carousel4.png"),
+              //   ],
+              // ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -240,25 +239,27 @@ class Home extends StatelessWidget {
             Container(
               height: 210,
               width: size.width * 0.95,
-              child: Swiper(
-                itemBuilder: (BuildContext context, int index) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      padding: EdgeInsets.all(16),
-                      color: Colors.white,
-                      child: Image.asset(
-                        TempData.brands[index],
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  );
-                },
-                autoplay: false,
-                itemCount: TempData.brands.length,
-                viewportFraction: 0.8,
-                scale: 0.9,
-              ),
+              child: Text('Here was Swiper'),
+              // Swiper(
+              //   itemBuilder: (BuildContext context, int index) {
+              //     return ClipRRect(
+              //       borderRadius: BorderRadius.circular(10),
+              //       child: Container(
+              //         padding: EdgeInsets.all(16),
+              //         color: Colors.white,
+              //         child: Image.asset(
+              //           TempData.brands[index],
+              //           fit: BoxFit.fill,
+              //         ),
+              //       ),
+              //     );
+              //   },
+              //   autoplay: false,
+              //   itemCount: TempData.brands.length,
+              //   viewportFraction: 0.8,
+              //   scale: 0.9,
+              //   onTap: (index) {},
+              // ),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -291,7 +292,7 @@ class Home extends StatelessWidget {
     );
   }
 
-  Widget _homeItemMenu(String item, {IconData icon, bool badge = false, bool textOnly = false}) {
+  Widget _homeItemMenu(String item, {IconData? icon, bool badge = false, bool textOnly = false}) {
     return textOnly
         ? Text(item, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800))
         : Row(

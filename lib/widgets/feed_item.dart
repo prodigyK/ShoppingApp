@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:badges/badges.dart';
+import 'package:course_firebase_app/constants/icon_consts.dart';
 import 'package:course_firebase_app/constants/temp_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 class FeedItem extends StatelessWidget {
-  const FeedItem({Key key}) : super(key: key);
+  const FeedItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class FeedItem extends StatelessWidget {
                           Text('12 left', style: TextStyle(fontSize: 12, color: Theme.of(context).disabledColor)),
                           Spacer(),
                           IconButton(
-                            icon: Icon(Feather.more_horizontal),
+                            icon: Icon(AppIcons.more_horizontal),
                             color: Theme.of(context).disabledColor,
                             onPressed: () {},
                           ),

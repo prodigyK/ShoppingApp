@@ -1,7 +1,7 @@
 import 'package:course_firebase_app/constants/color_consts.dart';
+import 'package:course_firebase_app/constants/icon_consts.dart';
 import 'package:course_firebase_app/provider/dark_theme_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:provider/provider.dart';
 
@@ -13,13 +13,13 @@ class UserInfo extends StatefulWidget {
 class _UserInfoState extends State<UserInfo> {
   double top = 0.0;
   double topMargin = 300;
-  ScrollController _scrollController;
+  ScrollController? _scrollController;
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _scrollController.addListener(() {
+    _scrollController!.addListener(() {
       setState(() {});
     });
   }
@@ -108,15 +108,15 @@ class _UserInfoState extends State<UserInfo> {
                   children: [
                     userTitle('User Information'),
                     Divider(thickness: 1, color: Colors.grey),
-                    userListTile('Email', 'Email sub', Feather.mail, context),
-                    userListTile('Phone Number', '4555', Feather.phone, context),
-                    userListTile('Shipping Address', '', Feather.map_pin, context),
-                    userListTile('Joined Date', 'date', Feather.calendar, context),
+                    userListTile('Email', 'Email sub', AppIcons.mail, context),
+                    userListTile('Phone Number', '4555', AppIcons.phone, context),
+                    userListTile('Shipping Address', '', AppIcons.mapPin, context),
+                    userListTile('Joined Date', 'date', AppIcons.calendar, context),
                     userTitle('User Settings'),
                     Divider(thickness: 1, color: Colors.grey),
                     ListTileSwitch(
                       value: themeChange.darkTheme,
-                      leading: Icon(Ionicons.md_moon),
+                      leading: Icon(AppIcons.moon),
                       onChanged: (value) {
                         setState(() {
                           themeChange.darkTheme = value;
@@ -127,7 +127,7 @@ class _UserInfoState extends State<UserInfo> {
                       switchActiveColor: Theme.of(context).accentColor,
                       title: Text('Dark Theme'),
                     ),
-                    userListTile('Log out', '', Feather.log_out, context),
+                    userListTile('Log out', '', AppIcons.logOut, context),
                   ],
                 ),
               ),
@@ -151,9 +151,9 @@ class _UserInfoState extends State<UserInfo> {
     double scale = 1.0;
     // print('ScrollController = $_scrollController');
 
-    if (_scrollController.hasClients) {
+    if (_scrollController!.hasClients) {
       // print('ScrollController.hasClients = $_scrollController');
-      double offset = _scrollController.offset;
+      double offset = _scrollController!.offset;
       top -= offset;
       if (offset < defaultTopMargin - scaleStart) {
         //offset small => don't scale down
