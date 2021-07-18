@@ -14,8 +14,8 @@ class FeedItem extends StatelessWidget {
     int index = Random().nextInt(TempData.images.length);
 
     return Container(
-      width: 250,
-      height: 510,
+      // width: 250,
+      // height: 510,
       child: Card(
         child: Stack(
           children: [

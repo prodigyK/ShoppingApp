@@ -6,6 +6,7 @@ import 'package:course_firebase_app/constants/color_consts.dart';
 import 'package:course_firebase_app/constants/icon_consts.dart';
 import 'package:course_firebase_app/constants/temp_data.dart';
 import 'package:course_firebase_app/provider/dark_theme_provider.dart';
+import 'package:course_firebase_app/widgets/carousel.dart';
 import 'package:course_firebase_app/widgets/category_widget.dart';
 import 'package:course_firebase_app/widgets/popular_product.dart';
 import 'package:flutter/material.dart';
@@ -172,28 +173,10 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 200.0,
+              height: 230.0,
               width: double.infinity,
-              child: Text('Here was Carousel'),
-              // Carousel(
-              //   boxFit: BoxFit.fill,
-              //   autoplay: true,
-              //   animationCurve: Curves.fastOutSlowIn,
-              //   animationDuration: Duration(milliseconds: 1000),
-              //   dotSize: 5.0,
-              //   dotIncreasedColor: Color(0xFFFF335C),
-              //   dotBgColor: Colors.black.withOpacity(0.3),
-              //   dotPosition: DotPosition.bottomCenter,
-              //   // dotVerticalPadding: 10.0,
-              //   showIndicator: true,
-              //   indicatorBgPadding: 7.0,
-              //   images: [
-              //     ExactAssetImage("assets/images/carousel1.png"),
-              //     ExactAssetImage("assets/images/carousel2.jpeg"),
-              //     ExactAssetImage("assets/images/carousel3.jpg"),
-              //     ExactAssetImage("assets/images/carousel4.png"),
-              //   ],
-              // ),
+              // child: Text('Here was Carousel'),
+              child: Carousel(),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
