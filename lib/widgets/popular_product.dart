@@ -36,16 +36,16 @@ class PopularProduct extends StatelessWidget {
                 right: 12,
                 top: 10,
                 child: IconButton(
-                  icon: Icon(AppIcons.star, color: Colors.grey.shade800),
+                  icon: Icon(AppIcons.star_outlined, color: Colors.grey.shade800),
                   // iconSize: 30,
                   onPressed: () {},
                 ),
               ),
               Positioned(
-                right: 10,
-                top: 7,
+                right: 12,
+                top: 10,
                 child: IconButton(
-                  icon: Icon(AppIcons.star_outlined, color: Colors.white),
+                  icon: Icon(AppIcons.star, color: Colors.white),
                   // iconSize: 30,
                   onPressed: () {},
                 ),

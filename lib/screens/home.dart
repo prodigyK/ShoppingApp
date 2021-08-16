@@ -6,6 +6,7 @@ import 'package:course_firebase_app/constants/color_consts.dart';
 import 'package:course_firebase_app/constants/icon_consts.dart';
 import 'package:course_firebase_app/constants/temp_data.dart';
 import 'package:course_firebase_app/provider/dark_theme_provider.dart';
+import 'package:course_firebase_app/screens/inner_screens/brand_navigation_rail.dart';
 import 'package:course_firebase_app/widgets/carousel.dart';
 import 'package:course_firebase_app/widgets/category_widget.dart';
 import 'package:course_firebase_app/widgets/popular_product.dart';
@@ -73,7 +74,7 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      headerHeight: 250,
+      headerHeight: 180,
       backLayer: Container(
         height: 500,
         decoration: BoxDecoration(
@@ -224,20 +225,25 @@ class Home extends StatelessWidget {
               height: 210,
               width: size.width * 0.95,
               child: Swiper(
-                itemBuilder: (BuildContext context,int index){
-                      return ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Container(
-                          padding: EdgeInsets.all(16),
-                          color: Colors.white,
-                          child: Image.asset(
-                            TempData.brands[index],
-                            fit: BoxFit.fill,
-                          ),
+                itemBuilder: (BuildContext context, int index) {
+                  return ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, BrandNavigationRailScreen.routeName, arguments: index);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(16),
+                        color: Colors.white,
+                        child: Image.asset(
+                          TempData.brands[index],
+                          fit: BoxFit.fill,
                         ),
-                      );
+                      ),
+                    ),
+                  );
                 },
-                itemCount: 3,
+                itemCount: TempData.brands.length - 1,
                 autoplay: true,
                 viewportFraction: 0.8,
                 scale: 0.9,

@@ -1,3 +1,5 @@
+import 'package:course_firebase_app/screens/inner_screens/brand_navigation_rail.dart';
+
 import './constants/theme_data.dart';
 import './provider/dark_theme_provider.dart';
 import './screens/bottom_bar.dart';
@@ -38,6 +40,9 @@ class _MyAppState extends State<MyApp> {
             title: 'Shopping App',
             theme: Styles.themeData(themeData.darkTheme, context),
             home: BottomBarScreen(),
+            routes: {
+              BrandNavigationRailScreen.routeName: (_) => BrandNavigationRailScreen(),
+            },
           );
         },
       ),
